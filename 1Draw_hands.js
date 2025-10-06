@@ -30,29 +30,42 @@ function drawInteraction(faces, hands) {
      let pinkyFingerTipX = hand.pinky_finger_tip.x;
      let pinkyFingerTipY = hand.pinky_finger_tip.y;
 
+     let wristX = hand.wrist.x;
+     let wristY = hand.wrist.y;  
     // /*
     // Start drawing on the hands here
     // */
 
-    fill(225, 225, 0);
-    ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
-    ellipse(middleFingerTipX, middleFingerTipY, 30, 30);
-    ellipse(ringFingerTipX, ringFingerTipY, 30, 30);
-    ellipse(pinkyFingerTipX, pinkyFingerTipY, 30, 30);
-    ellipse(thumbTipX, thumbTipY, 30, 30);
+    // fill(225, 225, 0);
+    // ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
+    // ellipse(middleFingerTipX, middleFingerTipY, 30, 30);
+    // ellipse(ringFingerTipX, ringFingerTipY, 30, 30);
+    // ellipse(pinkyFingerTipX, pinkyFingerTipY, 30, 30);
+    // ellipse(thumbTipX, thumbTipY, 30, 30);
 
-    strokeWeight(5);
+// this is the star
+    
+    strokeWeight(5); 
     line(thumbTipX, thumbTipY, middleFingerTipX, middleFingerTipY);
     line(middleFingerTipX, middleFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
     line(pinkyFingerTipX, pinkyFingerTipY, indexFingerTipX, indexFingerTipY);
     line(indexFingerTipX, indexFingerTipY, ringFingerTipX, ringFingerTipY);
     line(ringFingerTipX, ringFingerTipY, thumbTipX, thumbTipY);
 
-    // // drawPoints(hand)
+    // this is the border around the star
+    fill(245, 167, 66)
+    line(thumbTipX, thumbTipY, indexFingerTipX, indexFingerTipY);
+    line(indexFingerTipX, indexFingerTipY, middleFingerTipX, middleFingerTipY);
+    line(middleFingerTipX, middleFingerTipY, ringFingerTipX, ringFingerTipY);
+    line(ringFingerTipX, ringFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
+    line(pinkyFingerTipX, pinkyFingerTipY, thumbTipX, thumbTipY);
+    
+    
+//  drawPoints(hand)
 
-    // fingerPuppet(indexFingerTipX, indexFingerTipY);
+    //fingerPuppet(indexFingerTipX, indexFingerTipY);
 
-    // chameleonHandPuppet(hand)
+    //chameleonHandPuppet(hand)
 
     /*
     Stop drawing on the hands here
