@@ -40,20 +40,20 @@ const  CaptureHeight = 960;
 
 // program Mode
 const webCam = true; // set to false to use video
-const videoFile = "hands2.mov" // update this to match the video file you want to load
+const videoFile = "FaceAndHands.mov" // update this to match the video file you want to load
 const flipVideo = true; // changes from mirror mode to standard video mode
 
 
 // global variables 
 let uiVisible = false;
-let currentMode = 'hands';// this totally doesnt work  // 'hands', 'face', or 'both'
+let currentMode = 'both';// this totally doesnt work  // 'hands', 'face', or 'both'
 let showDebugInfo = false;
 let showKeypoints = false;
 
 
 // What is the program looking for
 const numberOfFaces = 1;
-const numberOfHands = 2; 
+const numberOfHands = 4; 
 
 
 const threshold = 0.9 // only change if you're having hand detection issues

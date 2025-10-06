@@ -15,6 +15,9 @@ function drawInteraction(faces, hands) {
     }
 
     // This is how to load in the x and y of a point on the hand.
+    
+
+
     let middleFingerTipX = hand.middle_finger_tip.x;
     let middleFingerTipY = hand.middle_finger_tip.y;
 
@@ -44,7 +47,6 @@ function drawInteraction(faces, hands) {
     // ellipse(thumbTipX, thumbTipY, 30, 30);
 
 // this is the star
-    
     strokeWeight(5); 
     line(thumbTipX, thumbTipY, middleFingerTipX, middleFingerTipY);
     line(middleFingerTipX, middleFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
