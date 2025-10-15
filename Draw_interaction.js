@@ -3,14 +3,15 @@
 // let myImage;
 
 let bgImage;
+
 function prepareInteraction() {
-  bgImage = loadImage('/Desktop/bgimage.png');
+  bgImage = loadImage('/Images/bgimage.png');
 }
 
 
 
 function drawInteraction(faces, hands) {
-
+image(bgImage, 200, 200)
   // hands part
   // USING THE GESTURE DETECTORS (check their values in the debug menu)
   // detectHandGesture(hand) returns "Pinch", "Peace", "Thumbs Up", "Pointing", "Open Palm", or "Fist"
