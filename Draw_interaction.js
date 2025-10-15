@@ -1,7 +1,13 @@
 // ----=  HANDS  =----
+
+// let myImage;
+
+let bgImage;
 function prepareInteraction() {
-  bgImage = loadImage('/images/background.png');
+  bgImage = loadImage('/Desktop/bgimage.png');
 }
+
+
 
 function drawInteraction(faces, hands) {
 
