@@ -33,8 +33,6 @@ function drawInteraction(faces, hands) {
      let pinkyFingerTipX = hand.pinky_finger_tip.x;
      let pinkyFingerTipY = hand.pinky_finger_tip.y;
 
-     let wristX = hand.wrist.x;
-     let wristY = hand.wrist.y;  
     // /*
     // Start drawing on the hands here
     // */
@@ -55,7 +53,6 @@ function drawInteraction(faces, hands) {
     line(ringFingerTipX, ringFingerTipY, thumbTipX, thumbTipY);
 
     // this is the border around the star
-    fill(245, 167, 66)
     line(thumbTipX, thumbTipY, indexFingerTipX, indexFingerTipY);
     line(indexFingerTipX, indexFingerTipY, middleFingerTipX, middleFingerTipY);
     line(middleFingerTipX, middleFingerTipY, ringFingerTipX, ringFingerTipY);
