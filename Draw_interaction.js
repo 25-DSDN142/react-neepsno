@@ -1,17 +1,18 @@
 // ----=  HANDS  =----
 
-// let myImage;
+let myImageGreen;
+let myImageGold;
 
-let bgImage;
 
 function prepareInteraction() {
-  bgImage = loadImage('/Images/bgimage.png');
+  myImageGreen = loadImage('/Images/Magic.png');
+  myImageGold = loadImage('/Images/Magic_gold.png');
 }
 
 
 
 function drawInteraction(faces, hands) {
-image(bgImage, 200, 200)
+// image(myImage, 200, 200)
   // hands part
   // USING THE GESTURE DETECTORS (check their values in the debug menu)
   // detectHandGesture(hand) returns "Pinch", "Peace", "Thumbs Up", "Pointing", "Open Palm", or "Fist"
@@ -25,6 +26,8 @@ image(bgImage, 200, 200)
     }
     // console.log(hand);
 
+let whatGesture = detectHandGesture(hand) 
+
     let middleFingerTipX = hand.middle_finger_tip.x;
     let middleFingerTipY = hand.middle_finger_tip.y;
 
@@ -37,25 +40,38 @@ image(bgImage, 200, 200)
     let thumbTipX = hand.thumb_tip.x;
     let thumbTipY = hand.thumb_tip.y;
 
-     let pinkyFingerTipX = hand.pinky_finger_tip.x;
-     let pinkyFingerTipY = hand.pinky_finger_tip.y;
+    let pinkyFingerTipX = hand.pinky_finger_tip.x;
+    let pinkyFingerTipY = hand.pinky_finger_tip.y;
+
+    let middleFingerMcpX = hand.middle_finger_mcp.x;
+    let middleFingerMcpY = hand.middle_finger_mcp.y;
+    let middleFingerMcpZ = hand.middle_finger_mcp.z3D;  
+
+    let wristX = hand.wrist.x;
+    let wristY = hand.wrist.y;
+    let wristZ = hand.wrist.z3D;
+
+
     /*
     Start drawing on the hands here
     */
-    stroke(255, 190, 87)
-    strokeWeight(5);
-    line(thumbTipX, thumbTipY, middleFingerTipX, middleFingerTipY);
-    line(middleFingerTipX, middleFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
-    line(pinkyFingerTipX, pinkyFingerTipY, indexFingerTipX, indexFingerTipY);
-    line(indexFingerTipX, indexFingerTipY, ringFingerTipX, ringFingerTipY);
-    line(ringFingerTipX, ringFingerTipY, thumbTipX, thumbTipY);
+   
 
-    // this is the border around the star
-    line(thumbTipX, thumbTipY, indexFingerTipX, indexFingerTipY);
-    line(indexFingerTipX, indexFingerTipY, middleFingerTipX, middleFingerTipY);
-    line(middleFingerTipX, middleFingerTipY, ringFingerTipX, ringFingerTipY);
-    line(ringFingerTipX, ringFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
-    line(pinkyFingerTipX, pinkyFingerTipY, thumbTipX, thumbTipY);
+
+if(whatGesture == 'Open Palm'){
+    push()
+    imageMode(CENTER)
+    image(myImageGold,middleFingerMcpX, middleFingerMcpY, 398, 402);
+    pop()
+
+} else {
+    
+    push()
+    imageMode(CENTER)
+    image(myImageGreen,middleFingerMcpX, middleFingerMcpY);
+    pop()
+    
+}
     // // pinchCircle(hand)
     // fill(225, 225, 0);
     // ellipse(indexFingerTipX, indexFingerTipY, 30, 30);
@@ -141,6 +157,7 @@ function checkIfMouthOpen(face) {
     // ellipse(thirdEyeX, thirdEyeY, 20, 20);
 
     checkIfMouthOpen(face);
+
     if (isMouthOpen) {
       fill(255, 190, 87);
       ellipse(thirdEyeX, thirdEyeY, rightEyeWidth, rightEyeHeight);
@@ -174,7 +191,7 @@ function checkIfMouthOpen(face) {
   // ellipse(upperLip.x,upperLip.y,20)
 
   let d = dist(upperLip.x, upperLip.y, lowerLip.x, lowerLip.y);
-  console.log(d)
+  // console.log(d)
   if (d < 10) {
     isMouthOpen = false;
   } else {
