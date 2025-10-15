@@ -45,7 +45,8 @@ function drawInteraction(faces, hands) {
     // ellipse(thumbTipX, thumbTipY, 30, 30);
 
 // this is the star
-    strokeWeight(5); 
+    noStroke();
+    fill(255, 190, 87)
     line(thumbTipX, thumbTipY, middleFingerTipX, middleFingerTipY);
     line(middleFingerTipX, middleFingerTipY, pinkyFingerTipX, pinkyFingerTipY);
     line(pinkyFingerTipX, pinkyFingerTipY, indexFingerTipX, indexFingerTipY);

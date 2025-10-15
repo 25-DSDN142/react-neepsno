@@ -40,15 +40,15 @@ const  CaptureHeight = 960;
 
 // program Mode
 const webCam = true; // set to false to use video
-const videoFile = "FaceAndHands.mov" // update this to match the video file you want to load
+const videoFile = "FaceandHands.mov" // update this to match the video file you want to load
 const flipVideo = true; // changes from mirror mode to standard video mode
 
 
 // global variables 
 let uiVisible = true;
-let currentMode = 'face';// this totally doesnt work  // 'hands', 'face', or 'both'
+let currentMode = 'both';// this totally doesnt work  // 'hands', 'face', or 'both'
 let showDebugInfo = false;
-let showKeypoints = true;
+let showKeypoints = false;
 
 
 // What is the program looking for

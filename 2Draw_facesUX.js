@@ -25,13 +25,67 @@ function drawInteraction(faces, hands) {
      face.rightEye
      face.rightEyebrow
     */
+ // Left eye
+    let leftEyeCenterX = face.leftEye.centerX;
+    let leftEyeCenterY = face.leftEye.centerY;
+    let leftEyeWidth = face.leftEye.width;
+    let leftEyeHeight = face.leftEye.height;
+    // Left eyebrow
+    let leftEyebrowCenterX = face.leftEyebrow.centerX;
+    let leftEyebrowCenterY = face.leftEyebrow.centerY;
+    let leftEyebrowWidth = face.leftEyebrow.width;
+    let leftEyebrowHeight = face.leftEyebrow.height;
+
+    // Lips
+    let lipsCenterX = face.lips.centerX;
+    let lipsCenterY = face.lips.centerY;
+    let lipsWidth = face.lips.width;
+    let lipsHeight = face.lips.height;
+
+    // Right eye
+    let rightEyeCenterX = face.rightEye.centerX;
+    let rightEyeCenterY = face.rightEye.centerY;
+    let rightEyeWidth = face.rightEye.width;
+    let rightEyeHeight = face.rightEye.height;
+
+    // Right eyebrow
+    let rightEyebrowCenterX = face.rightEyebrow.centerX;
+    let rightEyebrowCenterY = face.rightEyebrow.centerY;
+    let rightEyebrowWidth = face.rightEyebrow.width;
+    let rightEyebrowHeight = face.rightEyebrow.height;
+
+    let noseTipX = face.keypoints[4].x;
+    let noseTipY = face.keypoints[4].y;
+
+    let thirdEyeX = face.keypoints[151].x;
+    let thirdEyeY = face.keypoints[151].y;
 
     /*
     Start drawing on the face here
     */
+    noStroke()
+    fill(255);
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+    
+    //eye whites
+    ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
+    ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
+    // ellipse(thirdEyeX, thirdEyeY, rightEyeWidth, rightEyeHeight);
+
+    //irises
+    fill(36, 120, 255)
+    ellipse(leftEyeCenterX, leftEyeCenterY, 20, 20);
+    fill(227, 39, 45)
+    ellipse(rightEyeCenterX, rightEyeCenterY, 20, 20);
+    // fill(145, 41, 242)
+    // ellipse(thirdEyeX, thirdEyeY, 20, 20);
+
     checkIfMouthOpen(face);
     if (isMouthOpen) {
-      text("blah blah", face.keypoints[287].x, face.keypoints[287].y)
+      fill(255);
+      ellipse(thirdEyeX, thirdEyeY, rightEyeWidth, rightEyeHeight);
+      fill(145, 41, 242)
+      ellipse(thirdEyeX, thirdEyeY, 20, 20);
     }
 
     /*
@@ -44,6 +98,7 @@ function drawInteraction(faces, hands) {
 }
 
 
+    
 function checkIfMouthOpen(face) {
 
   let upperLip = face.keypoints[13]
@@ -52,13 +107,14 @@ function checkIfMouthOpen(face) {
   // ellipse(upperLip.x,upperLip.y,20)
 
   let d = dist(upperLip.x, upperLip.y, lowerLip.x, lowerLip.y);
-  //console.log(d)
+  console.log(d)
   if (d < 10) {
     isMouthOpen = false;
   } else {
     isMouthOpen = true;
   }
 
+  
 }
 
 function drawX(X, Y) {

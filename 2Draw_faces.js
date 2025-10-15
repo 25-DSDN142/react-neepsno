@@ -12,7 +12,7 @@ function drawInteraction(faces, hands) {
     // console.log(face);
     if (showKeypoints) {
       drawPoints(face)
-    }
+    } 
 
     /*
     Once this program has a face, it knows some things about it.
@@ -61,14 +61,31 @@ function drawInteraction(faces, hands) {
 
     let noseTipX = face.keypoints[4].x;
     let noseTipY = face.keypoints[4].y;
+
+    let thirdEyeX = face.keypoints[151].x;
+    let thirdEyeY = face.keypoints[151].y;
+
+
     /*
     Start drawing on the face here
     */
     noStroke()
-    fill(255, 255, 255);
-    fill(get(leftEyeCenterX, leftEyeCenterY))
-
+    fill(255);
+    // fill(get(leftEyeCenterX, leftEyeCenterY))
+    
+    //eye whites
     ellipse(leftEyeCenterX, leftEyeCenterY, leftEyeWidth, leftEyeHeight);
+    ellipse(rightEyeCenterX, rightEyeCenterY, rightEyeWidth, rightEyeHeight);
+    ellipse(thirdEyeX, thirdEyeY, rightEyeWidth, rightEyeHeight);
+
+    //irises
+    fill(36, 120, 255)
+    ellipse(leftEyeCenterX, leftEyeCenterY, 20, 20);
+    fill(227, 39, 45)
+    ellipse(rightEyeCenterX, rightEyeCenterY, 20, 20);
+    fill(145, 41, 242)
+    ellipse(thirdEyeX, thirdEyeY, 20, 20);
+
 
     drawPoints(face.leftEye);
     drawPoints(face.leftEyebrow);
@@ -76,14 +93,14 @@ function drawInteraction(faces, hands) {
     drawPoints(face.rightEye);
     drawPoints(face.rightEyebrow);
 
-    drawX(rightEyeCenterX,rightEyeCenterY);
-    drawX(leftEyeCenterX,leftEyeCenterY);
+  //  drawX(rightEyeCenterX,rightEyeCenterY);
+  //   drawX(leftEyeCenterX,leftEyeCenterY); 
 
 
-    drawX(noseTipX,noseTipY); 
+    // drawX(noseTipX,noseTipY); 
 
-    drawX(face.keypoints[332].x,face.keypoints[332].y);
-    drawX(face.keypoints[103].x,face.keypoints[103].y);
+    // drawX(face.keypoints[332].x,face.keypoints[332].y);
+    // drawX(face.keypoints[103].x,face.keypoints[103].y);
 
 
     /*
@@ -99,8 +116,8 @@ function drawX(X, Y) {
   push()
 
   strokeWeight(15)
-  line(X - 20, Y - 20, X + 20, Y + 20)
-  line(X - 20, Y + 20, X + 20, Y - 20)
+  // line(X - 20, Y - 20, X + 20, Y + 20)
+  // line(X - 20, Y + 20, X + 20, Y - 20)
 
   pop()
 }
